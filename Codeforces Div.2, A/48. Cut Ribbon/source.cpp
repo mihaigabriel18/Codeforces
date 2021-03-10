@@ -18,13 +18,6 @@ int main() {
     b = val[1];
     c = val[2];
 
-    // if (n % a == 0) {
-    //     cout << n / a;
-    //     return 0;
-    // }
-    // else {
-
-    // }
     int nr = 0, nr_a, nr_b, nr_c;
     for (nr_c = 0; nr_c <= n / c; nr_c++) {
         for (nr_b = 0; nr_b <= n / b; nr_b++) {
