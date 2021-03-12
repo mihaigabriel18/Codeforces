@@ -4,6 +4,7 @@
         "cstdlib": "cpp",
         "algorithm": "cpp",
         "iostream": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "vector": "cpp"
     }
 }
