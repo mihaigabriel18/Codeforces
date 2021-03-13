@@ -26,10 +26,8 @@ int main() {
 
     if (sum >= max - 1) {
         cout << "YES";
-        return 0;
     }
     else {
         cout << "NO";
-        return 0;
     }
 }
