@@ -38,6 +38,4 @@ int main() {
         cout << "C";
     else
         cout << sol;
-
-
 }
