@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 #define MAX_SIZE 105
 
@@ -20,14 +22,17 @@ void solve() {
     for (int i = 1; i <= n / 2; i++)
         for (int j = 1; j <= m / 2; j++) {
             LL nr1, nr2, nr3, nr4;
+            vector<int> vec;
             nr1 = matrix[i][j];
             nr2 = matrix[i][m - j + 1];
             nr3 = matrix[n - i + 1][j];
             nr4 = matrix[n - i + 1][m - j + 1];
 
-            LL average = (nr1 + nr2 + nr3 + nr4) / 4;
-            sum += abs(average - nr1) + abs(average - nr2) + abs(average - nr3)
-                   + abs(average - nr4);
+            vec.push_back(nr1); vec.push_back(nr2); vec.push_back(nr3); vec.push_back(nr4);
+            sort(vec.begin(), vec.end());
+            int mid_index = 1;
+            sum += abs(vec[mid_index] - nr1) + abs(vec[mid_index] - nr2) + abs(vec[mid_index] - nr3)
+                   + abs(vec[mid_index] - nr4);
         }
     
     int mid_i = n / 2 + 1;
@@ -38,8 +43,7 @@ void solve() {
             nr1 = matrix[mid_i][j];
             nr2 = matrix[mid_i][m - j + 1];
 
-            LL average = (nr1 + nr2) / 2;
-            sum += abs(average - nr1) + abs(average - nr2);
+            sum += abs(nr2 - nr1);
         }
 
     if (m % 2)
@@ -48,8 +52,7 @@ void solve() {
             nr1 = matrix[i][mid_j];
             nr2 = matrix[n - i + 1][mid_j];
 
-            LL average = (nr1 + nr2) / 2;
-            sum += abs(average - nr1) + abs(average - nr2);
+            sum += abs(nr2 - nr1);
         }
     cout << sum << endl;
 }
